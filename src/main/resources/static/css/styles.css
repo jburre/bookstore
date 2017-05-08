@@ -8,3 +8,7 @@ body{
 .navbar{
 	margin-bottom:20px;
 }
+
+.col-xs-8{
+	width:100%;
+}
