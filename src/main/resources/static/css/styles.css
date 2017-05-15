@@ -37,3 +37,9 @@ hr {
 #featuredBooksHR {
 	margin-top:-15px;
 }
+
+#page-top{
+	width:100%;
+	heigth:20px;
+	background-color:#f46b42;
+}
