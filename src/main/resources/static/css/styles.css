@@ -1,45 +1,56 @@
-@CHARSET "utf-8";
-
-body{
-	padding-top:20px;
-	padding-bottom:20px;
+body {
+ 
 }
 
 hr {
-	border:none;
-	height:1px;
-	color:#333;
-	background-color:#333;
+	border: none;
+	height: 1px;
+	color: #333;
+	background-color: #333;
 }
 
-.navbar{
-	margin-bottom:20px;
+.container {
+	width: 90%;
 }
 
-.container{
-	width:90%;
+.page-top {
+	margin-top: -70px;
+}
+
+.navbar {
+  margin-bottom: 20px;
+}
+
+.box {
+	border: 1px solid red;
 }
 
 .home-headline{
-	font-family:"Times New Roman, Times, serif";
+	font-family: 'Times New Roman', Times, serif;
 	font-size:24px;
-	color:#fff;
-	margin:auto;
-	text-align:center;
-	margin-top:-13px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: -13px;
 }
 
-.home-headline span{
-	background-color:#231F20;
-	padding:5px 20px;
+.home-headline span {
+	background-color: #231F20;
+    padding: 5px 22px;
+	
 }
 
-#featuredBooksHR {
-	margin-top:-15px;
+.section-headline {
+	font-family: 'Times New Roman', Times, serif;
+	font-size:24px;
+	color: #fff;
+	margin: auto;
+	text-align: center;
+	margin-top: 90px;
 }
 
-#page-top{
-	width:100%;
-	heigth:20px;
-	background-color:#f46b42;
+.section-headline span {
+	background-color: #231F20;
+    padding: 5px 22px;
+	
 }
