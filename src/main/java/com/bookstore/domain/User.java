@@ -20,9 +20,18 @@ import com.bookstore.domain.security.Authority;
 import com.bookstore.domain.security.UserRole;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+/**
+ * 
+ * @author jburre
+ *
+ */
 @Entity
 public class User implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id", nullable=false, updatable=false)
@@ -34,6 +43,9 @@ public class User implements UserDetails{
 	private String email;
 	private String phone;
 	private boolean enabled=true;
+	
+	private String firstname;
+	private String lastname;
 	
 	
 	@OneToMany(mappedBy="user", cascade=CascadeType.ALL, fetch=FetchType.EAGER)
@@ -83,14 +95,19 @@ public class User implements UserDetails{
 		this.phone = phone;
 	}
 	public boolean isEnabled() {
-		return enabled;
+		return this.enabled;
 	}
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
 	}
-	private String firstname;
-	private String lastname;
 
+	public Set<UserRole> getUserRoles() {
+		return userRoles;
+	}
+	public void setUserRoles(Set<UserRole> userRoles) {
+		this.userRoles = userRoles;
+	}
+	
 	@Override
 	public Collection<? extends GrantedAuthority> getAuthorities() {
 		Set <GrantedAuthority> authorities = new HashSet<>();
@@ -101,16 +118,17 @@ public class User implements UserDetails{
 	@Override
 	public boolean isAccountNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	@Override
 	public boolean isAccountNonLocked() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
 	@Override
 	public boolean isCredentialsNonExpired() {
 		// TODO Auto-generated method stub
-		return false;
+		return true;
 	}
+	
 }
