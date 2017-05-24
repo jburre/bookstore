@@ -9,9 +9,11 @@ import org.springframework.security.config.annotation.web.WebSecurityConfigurer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 import com.bookstore.service.impl.UserSecurityService;
+import com.bookstore.utility.SecurityUtility;
 
 /**
  * 
@@ -62,6 +64,6 @@ public class Securityconfig extends WebSecurityConfigurerAdapter{
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-		auth.userDetailsService(userSecurityService).passwordEncoder(passwordEncoder());
+		auth.userDetailsService(userSecurityService).passwordEncoder(pwasswordEncoder());
 	}
 }
