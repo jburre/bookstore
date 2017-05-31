@@ -61,6 +61,6 @@ public class HomeController {
 		SecurityContextHolder.getContext().setAuthentication(authentication);
 		
 		model.addAttribute("classActiveNewUser", true);
-		return "myAccount";
+		return "myProfile";
 	}
 }
