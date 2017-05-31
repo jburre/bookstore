@@ -10,14 +10,14 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Role {	
-	
+public class Role {
+
 	@Id
 	private int roleId;
 	private String name;
 	
-	@OneToMany(mappedBy="role", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
-	private Set<UserRole> userRoles= new HashSet<>();
+	@OneToMany(mappedBy = "role", cascade=CascadeType.ALL, fetch=FetchType.LAZY)
+	private Set<UserRole> userRoles = new HashSet<>();
 
 	public int getRoleId() {
 		return roleId;

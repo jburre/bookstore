@@ -1,4 +1,4 @@
-package repository;
+package com.bookstore.repository;
 
 import org.springframework.data.repository.CrudRepository;
 
