@@ -23,6 +23,10 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @Entity
 public class User implements UserDetails{
 	
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 93174285502216572L;
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	@Column(name="id", nullable = false, updatable = false)
