@@ -57,22 +57,53 @@ public class HomeController {
 	}
 
 	@RequestMapping("/forgetPassword")
-	public String forgetPassword(Model model) {
+	public String forgetPassword(
+			HttpServletRequest request,
+            @ModelAttribute("email") String email,
+			Model model) {
 
 		model.addAttribute("classActiveForgetPassword", true);
+		
+		User user = userService.findByEmail(email);
+		
+		if (user == null){
+			model.addAttribute("emailNotExists", true);
+			return "myAccount";
+		}
+		
+		String password = SecurityUtility.randomPassword();
+		
+		String encryptedPassword = SecurityUtility.passwordEncoder().encode(password);
+		user.setPassword(encryptedPassword);
+		
+
+		userService.save(user);
+		
+		String token = UUID.randomUUID().toString();
+		userService.createPasswordResetTokenForUser(user, token);
+		
+		String appUrl = "http://"+request.getServerName()+":"+request.getServerPort()+request.getContextPath();
+		
+		SimpleMailMessage newEmail = mailConstructor.constructResetTokenEmail(appUrl, request.getLocale(), token, user, password);
+		
+		mailSender.send(newEmail);
+		
+		model.addAttribute("forgetPasswordEmailSent", "true");
+		
 		return "myAccount";
 	}
 	
-	@RequestMapping(value="/newUser", method = RequestMethod.POST)
-	public String newUserPost(
-			HttpServletRequest request,
-			@ModelAttribute("email") String userEmail,
-			@ModelAttribute("username") String username,
-			Model model
-			) throws Exception{
-		model.addAttribute("classActiveNewAccount", true);
-		model.addAttribute("email", userEmail);
-		model.addAttribute("username", username);
+    @RequestMapping(value = "/newUser", method = RequestMethod.POST)
+    public String newUserPost(
+            HttpServletRequest request,
+            @ModelAttribute("email") String userEmail,
+            @ModelAttribute("username") String username,
+            Model model
+    )throws Exception{
+     
+        model.addAttribute("classActiveNewAccount", true);
+        model.addAttribute("email", userEmail);
+        model.addAttribute("username", username);
 		
 		if (userService.findByUsername(username) != null) {
 			model.addAttribute("usernameExists", true);
@@ -81,7 +112,7 @@ public class HomeController {
 		}
 		
 		if (userService.findByEmail(userEmail) != null) {
-			model.addAttribute("email", true);
+			model.addAttribute("emailExists", true);
 			
 			return "myAccount";
 		}

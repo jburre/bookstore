@@ -31,7 +31,7 @@ public class BookstoreApplication implements CommandLineRunner {
 		user1.setLastName("Adams");
 		user1.setUsername("j");
 		user1.setPassword(SecurityUtility.passwordEncoder().encode("p"));
-		user1.setEmail("JAdams@gmail.com");
+		user1.setEmail("Jan.H.Burre@gmail.com");
 		Set<UserRole> userRoles = new HashSet<>();
 		Role role1= new Role();
 		role1.setRoleId(1);
@@ -39,5 +39,6 @@ public class BookstoreApplication implements CommandLineRunner {
 		userRoles.add(new UserRole(user1, role1));
 		
 		userService.createUser(user1, userRoles);
+		
 	}
 }
