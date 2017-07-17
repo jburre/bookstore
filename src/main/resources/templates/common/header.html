@@ -25,7 +25,7 @@
 		<nav class="navbar navbar-default navbar-inverse">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#">LE'S BOOKSTORE</a>
+					<a class="navbar-brand" th:href="@{/}">LE'S BOOKSTORE</a>
 				</div>
 				<div id="navbar">
 					<ul class="nav navbar-nav navbar-left">
@@ -33,7 +33,7 @@
 							data-toggle="dropdown" role="button" aria-haspopup="true"
 							aria-expanded="false">BOOKS <span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><a href="#">Browse the bookshelf</a></li>
+								<li><a th:href="@{/bookshelf}">Browse the bookshelf</a></li>
 								<li><a href="#">Store hours &#38; Directions</a></li>
 								<li><a href="#">FAQ</a></li>
 
