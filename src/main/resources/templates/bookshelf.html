@@ -34,10 +34,14 @@
         					<div th:if="${book != null}">
         						<div class="row">
         							<div class="col-xs-3">
-        								<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book}+${book.id}+'.png'" />
+        								<a th:href="@{/bookDetail?id=}+${book.id}">
+        									<img class="img-responsive shelf-book" th:src="#{adminPath}+@{/image/book/}+${book.id}+'.png'" />
+        								</a>
         							</div>
         							<div class="col-xs-9">
-        								<h4 th:text="${book.title}"></h4>
+        								<a th:href="@{/bookDetail?id=}+${book.id}">
+        									<h4 th:text="${book.title}"></h4>
+        								</a>
         								<span th:text="${book.publicationDate}"></span>
         								<span th:text="${book.author}"></span>
         								<span th:text="${#strings.capitalize(book.format)}"></span>
