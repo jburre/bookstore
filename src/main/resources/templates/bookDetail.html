@@ -38,6 +38,7 @@
     					<p><strong>Language&nbsp;</strong><span th:text="${book.language}"></span></p>
     					<p><strong>Category:&nbsp;</strong><span th:text="${book.category}"></span></p>
     					<p><strong><span th:text="${book.format}"></span>:&nbsp;</strong><span th:text="${book.numberOfPages}"></span></p>
+    					<br />
     					<p><strong>ISBN:&nbsp;</strong><span th:text="${book.isbn}"></span></p>
     					<p><strong>Shipping Weight:&nbsp;</strong><span th:text="${book.shippingWeight}"></span>ounces</p>
     					<p><strong>Category:&nbsp;</strong><span th:text="${book.category}"></span></p>
@@ -73,7 +74,8 @@
     				</div>
     			</div>
     			<hr/>
-    			<p th:text="${book.description}"></p>
+    			<p th:utext="${book.description}">
+    			</p>
     		</div>
     	</div>
     </form>
