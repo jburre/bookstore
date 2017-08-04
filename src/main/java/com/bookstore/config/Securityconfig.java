@@ -11,7 +11,7 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
-import com.bookstore.service.impl.UserSecurityService;
+import com.bookstore.service.UserSecurityService;
 import com.bookstore.utility.SecurityUtility;
 
 @Configuration

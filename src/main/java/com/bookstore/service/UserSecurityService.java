@@ -1,4 +1,4 @@
-package com.bookstore.service.impl;
+package com.bookstore.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.userdetails.UserDetails;

@@ -35,8 +35,8 @@ import com.bookstore.domain.security.PasswordResetToken;
 import com.bookstore.domain.security.Role;
 import com.bookstore.domain.security.UserRole;
 import com.bookstore.service.BookService;
+import com.bookstore.service.UserSecurityService;
 import com.bookstore.service.UserService;
-import com.bookstore.service.impl.UserSecurityService;
 import com.bookstore.utility.MailConstructor;
 import com.bookstore.utility.SecurityUtility;
 import com.bookstore.utility.USConstants;
@@ -241,7 +241,7 @@ public class HomeController {
     }
     
     @RequestMapping(value="/addNewCreditCard", method=RequestMethod.POST)
-    public String addNewCreditCard(
+    public String addNewCreditCardPost(
     		@ModelAttribute("userPayment")UserPayment userPayment,
     		@ModelAttribute("userBilling")UserBilling userBilling,
     		Principal principal,
@@ -255,6 +255,7 @@ public class HomeController {
     	model.addAttribute("listOfCreditCards",true);
     	model.addAttribute("classActiveBilling",true);
     	model.addAttribute("listOfShippingAddresses",true);
+    	
     	return "myProfile";
     }
     

@@ -9,15 +9,11 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToOne;
 
-
-
-
-
 @Entity
 public class UserPayment {
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	private String type;
 	private String cardName;
@@ -32,7 +28,7 @@ public class UserPayment {
 	@JoinColumn(name="user_id")
 	private User user;
 	
-	@OneToOne(cascade=CascadeType.ALL, mappedBy="userPayment")
+	@OneToOne(cascade = CascadeType.ALL, mappedBy = "userPayment")
 	private UserBilling userBilling;
 
 	public Long getId() {
@@ -122,4 +118,7 @@ public class UserPayment {
 	public void setUserBilling(UserBilling userBilling) {
 		this.userBilling = userBilling;
 	}
+	
+	
 }
+
