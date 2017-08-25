@@ -19,69 +19,8 @@ public class UserPaymentImpl implements UserPaymentService{
 	}
 
 	@Override
-	public long count() {
-		// TODO Auto-generated method stub
-		return 0;
-	}
-
-	@Override
-	public void delete(Long arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(UserPayment arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void delete(Iterable<? extends UserPayment> arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void deleteAll() {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public boolean exists(Long arg0) {
-		// TODO Auto-generated method stub
-		return false;
-	}
-
-	@Override
-	public Iterable<UserPayment> findAll() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public Iterable<UserPayment> findAll(Iterable<Long> arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public UserPayment findOne(Long arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserPayment> S save(S arg0) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public <S extends UserPayment> Iterable<S> save(Iterable<S> arg0) {
-		// TODO Auto-generated method stub
-		return null;
+	public void removeById(Long id) {
+		userPaymentRepository.delete(id);
 	}
 
 }
