@@ -206,19 +206,6 @@ public class HomeController {
     	return "myProfile";
     }
     
-    @RequestMapping("/listOfShippingAddresses")
-    public String listOfShippingAdresses(Model model, Principal principal, HttpServletRequest request){
-    	User user = userService.findByUsername(principal.getName());
-    	model.addAttribute("user", user);
-    	model.addAttribute("userPaymentList", user.getUserPaymentList());
-    	model.addAttribute("userShippingList", user.getUserShippingList());
-    	//model.addAttribute("orderList", user.getOrderList());
-    	model.addAttribute("listOfCreditCards", true);
-    	model.addAttribute("classActiveBilling",true);
-    	model.addAttribute("listOfShippingAddresses", true);
-    	return "myProfile";
-    }
-    
     @RequestMapping("/addNewCreditCard")
     public String addNewCreditCard(Model model, Principal principal){
     	User user = userService.findByUsername(principal.getName());
@@ -333,6 +320,19 @@ public class HomeController {
     	return "myProfile";
     }
     
+    @RequestMapping("/listOfShippingAddresses")
+    public String listOfShippingAdresses(Model model, Principal principal, HttpServletRequest request){
+    	User user = userService.findByUsername(principal.getName());
+    	model.addAttribute("user", user);
+    	model.addAttribute("userPaymentList", user.getUserPaymentList());
+    	model.addAttribute("userShippingList", user.getUserShippingList());
+    	//model.addAttribute("orderList", user.getOrderList());
+    	model.addAttribute("listOfCreditCards", true);
+    	model.addAttribute("classActiveShipping",true);
+    	model.addAttribute("listOfShippingAddresses", true);
+    	return "myProfile";
+    }
+    
     @RequestMapping("/addNewShippingAddress")
 	public String addNewShippingAddress(
 			Model model, Principal principal
@@ -357,6 +357,24 @@ public class HomeController {
 		
 		return "myProfile";
 	}
+    
+    @RequestMapping(value="/addNewShippingAddress", method=RequestMethod.POST)
+    public String addNewShippingAddressPost(
+    		@ModelAttribute("userShipping")UserShipping userShipping,
+    		Principal principal,
+    		Model model
+    		){
+    	User user = userService.findByUsername(principal.getName());
+    	userService.updateUserShipping(userShipping, user);
+    	model.addAttribute("user", user);
+    	model.addAttribute("userPaymentList", user.getUserPaymentList());
+    	model.addAttribute("userShippingList", user.getUserShippingList());
+    	model.addAttribute("listOfShippingAddresses",true);
+    	model.addAttribute("classActiveShipping",true);
+    	model.addAttribute("listOfCreditCards",true);
+    	
+    	return "myProfile";
+    }
     
     @RequestMapping(value="/updateUserInfo", method=RequestMethod.POST)
     public String updateUserInfo(@ModelAttribute("user") User user, HttpServletRequest request){

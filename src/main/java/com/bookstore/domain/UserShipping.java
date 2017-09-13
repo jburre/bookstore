@@ -16,11 +16,11 @@ public class UserShipping {
 	private String userShippingName;
 	private String userShippingStreet1;
 	private String userShippingStreet2;
-	private String userShippingStreet3;
 	private String userShippingCity;
 	private String userShippingState;
 	private String userShippingCountry;
 	private String userShippingZipCode;
+	private boolean userShippingDefault;
 	
 	
 	@ManyToOne
@@ -65,16 +65,6 @@ public class UserShipping {
 
 	public void setUserShippingStreet2(String userShippingStreet2) {
 		this.userShippingStreet2 = userShippingStreet2;
-	}
-
-
-	public String getUserShippingStreet3() {
-		return userShippingStreet3;
-	}
-
-
-	public void setUserShippingStreet3(String userShippingStreet3) {
-		this.userShippingStreet3 = userShippingStreet3;
 	}
 
 
@@ -125,5 +115,15 @@ public class UserShipping {
 
 	public void setUser(User user) {
 		this.user = user;
+	}
+
+
+	public boolean isUserShippingDefault() {
+		return userShippingDefault;
+	}
+
+
+	public void setUserShippingDefault(boolean userShippingDefault) {
+		this.userShippingDefault = userShippingDefault;
 	}
 }
